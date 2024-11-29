@@ -2,6 +2,11 @@
 import Angular from "./icons/Angular.astro"
 import HTMLIcon from "./icons/HTML.astro"
 import CSSIcon from "./icons/CSS.astro"
+import SocialPill from "./SocialPill.astro";
+import GitHub from "./icons/GitHub.astro";
+import Browser from "./icons/Browser.astro";
+import JavascriptIcon from "./icons/Javascript.astro";
+import InfoPill from "./InfoPill.astro";
 
 const TAGS = {
     ANGULAR: {
@@ -19,34 +24,53 @@ const TAGS = {
         class: "bg-slate-700 text-white",
         icon: CSSIcon,
     },
+    JAVASCRIPT: {
+        name: "Javascript",
+        class: "bg-slate-700 text-white",
+        icon: JavascriptIcon,
+    },
 };
 
 const PROJECTS = [
     {
         title: 'Notepad',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum sequi temporibus necessitatibus excepturi quod nostrum. Pariatur provident nesciunt itaque assumenda veritatis incidunt excepturi voluptatum sapiente quaerat temporibus commodi, iure ducimus.',
-        link: '#',
-        github: '#',
+        description: 'This project is a simple yet powerful note-taking application built using Angular, HTML, and CSS. It allows users to create, edit, and delete notes effortlessly, providing a clean and intuitive interface for organizing thoughts and ideas.',
+        link: 'https://notes-edgar-lovat.vercel.app/',
+        github: 'https://github.com/Edgar24DEV/my-notepad',
         image: '/pictures/notes.png',
         tags: [TAGS.ANGULAR, TAGS.HTML, TAGS.CSS],
+    },
+    {
+        title: 'Add products',
+        description: 'Add Products is an easy-to-use app for managing inventory. Built with JavaScript, HTML, and CSS, it lets users quickly add product details and view them in real-time, streamlining inventory management for small businesses. ',
+        link: 'https://edgar24dev.github.io/Subir-productos/',
+        github: 'https://github.com/Edgar24DEV/Subir-productos',
+        image: '/pictures/subirproductos1.png',
+        tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
     },
 ];
 ---
 
 {
-    PROJECTS.map(({image, title, description, tags}) =>(
-        <article>
-            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
+    PROJECTS.map(({image, title, link, github, description, tags}) => (
+        <article class="bg-gradient-to-r from-indigo-800/25 to-indigo-900/25 rounded-lg p-5 hover:brightness-110 mb-5 m-5">
+            <div class="col-span-2 max-sm:col-span-3">
+                <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+                <img class="rounded shadow-2xl shadow-white/10 size-100" src={image} alt={title}>
+                <p class="text-lg mb-4 text-pretty">{description}</p>
+                <InfoPill class="size-2" href={github}><GitHub class="size-5 lg:size-5" />Github</InfoPill>
+                <InfoPill class="size-2" href={link}><Browser class="size-5 lg:size-5" />Preview</InfoPill>
+            </div>
+            
+        
             <ul class="flex gap-x-2 flex-row">
-                {tags.map(tag =>(
-                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 my-2`}>
-                    <tag.icon class="size-4"/>
-                    {tag.name}
+                {tags.map(tag => (
+                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 my-2 mb-0`}>
+                        <tag.icon class="size-4"/>
+                        {tag.name}
                     </span>
                 ))}
             </ul>
-            <img class="rounded shadow-2xl shadow-white/10" src={image} alt={title}>
         </article>
     ))
 }

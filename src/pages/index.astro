@@ -19,15 +19,15 @@ import Projects from '../components/Projects.astro';
 	<main class="px-4">
 
 		<SectionContainer class="py-40 pb-25">
-			<img class="rounded-full size-20 mb-4" src="" alt="edgar foto">
+			<img class="rounded-full size-25 mb-4" src="/pictures/fotolinkedin.jpg" alt="edgar foto">
 		<h1 class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-row
 		gap-x-4 pb-6 lg:pb-10">Hola, soy Edgar <a target="_blank" href="https://www.linkedin.com/in/edgar-%C3%A1lvaro-varela-508329231/" class="flex justify-center items-center"><Badge>Disponible para trabajar</Badge></a></h1>
 		
 		<h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-			+1 año de experiencia.
-			<span class="text-yellow-200/90">Desarrollador Web.</span><span class="text-red-100/90">
-			De Valencia, España.</span><br> 
-			<span class="opacity-75">Me especializo en crear webs únicas.</span>
+			Junior
+			<span class="text-yellow-200/90">Web Developer.</span><span class="text-red-100/90">
+				From Valencia, Spain.</span><br> 
+			<span class="opacity-75">I specialize in creating unique websites.</span>
 		</h2>
 		<nav class="flex gap-4 mt-8 flex-wrap">
 				<SocialPill href="https://www.linkedin.com/in/edgar-%C3%A1lvaro-varela-508329231/"><Linkedin class="size-5 lg:size-6"  /> Linkedin</SocialPill>
@@ -41,9 +41,21 @@ import Projects from '../components/Projects.astro';
 		<Experience/>
 	</SectionContainer>
 
-	<SectionContainer id="proyectos">
+	<SectionContainer id="proyectos" >
 		<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center"><Code class="size-8"/>Projects</h2>
 		<Projects>
+	</SectionContainer>
+
+	<SectionContainer id="sobre-mi">
+		<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center mt-40 float-left"><Code class="size-8"/>About Me</h2>
+		<p class="text-justify float-right">I am Edgar Álvaro Varela, 
+			a highly responsible and committed professional with a passion for continuous learning.
+			I focus on excellence and delivering quality results. 
+			My dedication and demonstrated skills in various work situations have earned me the trust of those around me.
+
+			I have a solid background in web application development, 
+			currently pursuing a Higher Vocational Training Cycle in Web Application Development at IES Blasco Ibáñez. 
+			My technical skills include <span class="text-yellow-100">JAVA, SPRING, PHP, JAVASCRIPT, ANGULAR, HTML, CSS, SQL, PL/SQL, GIT, and GITHUB.</span></p>
 	</SectionContainer>
 	</main>
 </Layout>
