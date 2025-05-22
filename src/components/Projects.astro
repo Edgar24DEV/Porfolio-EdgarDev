@@ -1,84 +1,114 @@
 ---
-import Angular from "./icons/Angular.astro"
-import HTMLIcon from "./icons/HTML.astro"
-import CSSIcon from "./icons/CSS.astro"
+import Angular from "./icons/Angular.astro";
+import HTMLIcon from "./icons/HTML.astro";
+import CSSIcon from "./icons/CSS.astro";
 import SocialPill from "./SocialPill.astro";
 import GitHub from "./icons/GitHub.astro";
 import Browser from "./icons/Browser.astro";
 import JavascriptIcon from "./icons/Javascript.astro";
 import InfoPill from "./InfoPill.astro";
+import Laravel from "./icons/Laravel.astro";
 
 const TAGS = {
-    ANGULAR: {
-        name: "Angular",
-        class: "bg-slate-700 text-white",
-        icon: Angular,
-    },
-    HTML: {
-        name: "HTML",
-        class: "bg-slate-700 text-white",
-        icon: HTMLIcon,
-    },
-    CSS: {
-        name: "CSS",
-        class: "bg-slate-700 text-white",
-        icon: CSSIcon,
-    },
-    JAVASCRIPT: {
-        name: "Javascript",
-        class: "bg-slate-700 text-white",
-        icon: JavascriptIcon,
-    },
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-slate-700 text-white",
+    icon: Angular,
+  },
+  LARAVEL: {
+    name: "Laravel",
+    class: "bg-slate-700 text-white",
+    icon: Laravel,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-slate-700 text-white",
+    icon: HTMLIcon,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-slate-700 text-white",
+    icon: CSSIcon,
+  },
+  JAVASCRIPT: {
+    name: "Javascript",
+    class: "bg-slate-700 text-white",
+    icon: JavascriptIcon,
+  },
 };
 
 const PROJECTS = [
-    {
-        title: 'Agencia de Viajes Simple',
-        description: 'Un proyecto simple con HTML, CSS, BOOTSTRAP y JS, donde hago una web simple para una supuesta agencia de viajes. Tiene validación de formularios, animaciones y manejador de video. ',
-        link: 'https://edgar24dev.github.io/Agencia-Viajes/',
-        github: 'https://github.com/Edgar24DEV/Agencia-Viajes',
-        image: '/pictures/agenVi.png',
-        tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
-    },
-    {
-        title: 'Notepad',
-        description: 'This project is a simple yet powerful note-taking application built using Angular, HTML, and CSS. It allows users to create, edit, and delete notes effortlessly, providing a clean and intuitive interface for organizing thoughts and ideas.',
-        link: 'https://notes-edgar-lovat.vercel.app/',
-        github: 'https://github.com/Edgar24DEV/my-notepad',
-        image: '/pictures/notes.png',
-        tags: [TAGS.ANGULAR, TAGS.HTML, TAGS.CSS],
-    },
-    {
-        title: 'Add products',
-        description: 'Add Products is an easy-to-use app for managing inventory. Built with JavaScript, HTML, and CSS, it lets users quickly add product details and view them in real-time, streamlining inventory management for small businesses. ',
-        link: 'https://edgar24dev.github.io/Subir-productos/',
-        github: 'https://github.com/Edgar24DEV/Subir-productos',
-        image: '/pictures/subirproductos1.png',
-        tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
-    },
+  {
+    title: 'POS System for Yurest',
+    description: 'A full-featured Point of Sale system developed using Angular, Ionic, and Laravel. The project follows Hexagonal Architecture and Domain-Driven Design (DDD), resulting in a scalable and maintainable structure.',
+    link: 'https://tpv-project.duckdns.org/select-login', 
+    github: 'https://github.com/Edgar24DEV/Proyecto-TPV-Front',
+    image: '/pictures/tpv.png',
+    tags: [TAGS.ANGULAR, TAGS.LARAVEL],
+},
+
+  {
+    title: "Simple Travel Agency",
+    description:
+      "A simple project built with HTML, CSS, Bootstrap, and JavaScript, where I created a basic website for a fictional travel agency. It includes form validation, animations, and a video handler.",
+    link: "https://edgar24dev.github.io/Agencia-Viajes/",
+    github: "https://github.com/Edgar24DEV/Agencia-Viajes",
+    image: "/pictures/agenVi.png",
+    tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
+  },
+
+  {
+    title: "Notepad",
+    description:
+      "This project is a simple yet powerful note-taking application built using Angular, HTML, and CSS. It allows users to create, edit, and delete notes effortlessly, providing a clean and intuitive interface for organizing thoughts and ideas.",
+    link: "https://notes-edgar-lovat.vercel.app/",
+    github: "https://github.com/Edgar24DEV/my-notepad",
+    image: "/pictures/notes.png",
+    tags: [TAGS.ANGULAR, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Add products",
+    description:
+      "Add Products is an easy-to-use app for managing inventory. Built with JavaScript, HTML, and CSS, it lets users quickly add product details and view them in real-time, streamlining inventory management for small businesses. ",
+    link: "https://edgar24dev.github.io/Subir-productos/",
+    github: "https://github.com/Edgar24DEV/Subir-productos",
+    image: "/pictures/subirproductos1.png",
+    tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
+  },
 ];
 ---
 
 {
-    PROJECTS.map(({image, title, link, github, description, tags}) => (
-        <article class="bg-gradient-to-r from-indigo-800/25 to-indigo-900/25 rounded-lg p-5 hover:brightness-110 mb-5 m-5">
-            <div class="col-span-2 max-sm:col-span-3">
-                <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-                <img class="rounded shadow-2xl shadow-white/10 size-100" src={image} alt={title}>
-                <p class="text-lg mb-4 text-pretty">{description}</p>
-                <InfoPill class="size-2" href={github}><GitHub class="size-5 lg:size-5" />Github</InfoPill>
-                <InfoPill class="size-2" href={link}><Browser class="size-5 lg:size-5" />Preview</InfoPill>
-            </div>
-            
-        
-            <ul class="flex gap-x-2 flex-row">
-                {tags.map(tag => (
-                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 my-2 mb-0`}>
-                        <tag.icon class="size-4"/>
-                        {tag.name}
-                    </span>
-                ))}
-            </ul>
-        </article>
-    ))
+  PROJECTS.map(({ image, title, link, github, description, tags }) => (
+    <article class="bg-gradient-to-r from-indigo-800/25 to-indigo-900/25 rounded-lg p-5 hover:brightness-110 mb-5 m-5">
+      <div class="col-span-2 max-sm:col-span-3">
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+        <img
+          class="rounded shadow-2xl shadow-white/10 size-100"
+          src={image}
+          alt={title}
+        />
+        <p class="text-lg mb-4 text-pretty">{description}</p>
+        <InfoPill class="size-2" href={github}>
+          <GitHub class="size-5 lg:size-5" />
+          Github
+        </InfoPill>
+        <InfoPill class="size-2" href={link}>
+          <Browser class="size-5 lg:size-5" />
+          Preview
+        </InfoPill>
+      </div>
+
+      <ul class="flex gap-x-2 flex-row">
+        {tags.map((tag) => (
+          <span
+            class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 my-2 mb-0`}
+          >
+            <tag.icon class="size-4" />
+            {tag.name}
+          </span>
+        ))}
+      </ul>
+    </article>
+  ))
 }
